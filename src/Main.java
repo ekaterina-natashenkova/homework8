@@ -46,12 +46,11 @@ public class Main {
         //и выведите в консоль результат в формате: «Средняя сумма трат за месяц составила … рублей».
         //Важно помнить: подсчет среднего значения может иметь остаток, то есть быть не целым, а дробным числом.
         int[] paymentPerWeekMedium = {257, 328, 133, 521, 470};
-        double mediumMonth = 0;
         sum = 0;
         for (int element : paymentPerWeekMedium) {
             sum += element;
         }
-        mediumMonth = (double) sum / 5;
+        double mediumMonth = (double) sum / 5;
         //System.out.println(sum);
         System.out.println("Средняя сумма трат за месяц составила " + mediumMonth + " рублей");
 
@@ -63,10 +62,16 @@ public class Main {
         //char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
         //В результате в консоль должно быть выведено: Ivanov Ivan.
         //Необходимо корректно пройти по массиву циклом и поменять его содержимое, чтобы установить правильный порядок.
-        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        //System.out.println(Arrays.toString(reverseFullName));
-        for (int i = reverseFullName.length-1; i >=0; i--) {
-            System.out.print(reverseFullName[i] + " ");
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        // System.out.println(Arrays.toString(reverseFullName));
+        //for (int i = reverseFullName.length - 1; i >= 0; i--) {
+        //   System.out.print(reverseFullName[i] + " ");  // печать в обратном порядке, а нужен "разворот" массивав
+        // }
+        char temp;
+        for (int i = 0; i < reverseFullName.length / 2; i++) {
+            temp = reverseFullName[i];
+            reverseFullName[i] = reverseFullName[reverseFullName.length - 1 - i];
+            reverseFullName[reverseFullName.length - 1 - i] = temp;
         }
         System.out.println();
     }
